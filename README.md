@@ -1,13 +1,13 @@
-# Heterogeneous UAV-USV Code
+# 异构 UAV-USV 协同代码
 
-This repository contains the executable code used for the heterogeneous UAV-USV marine search-and-rescue experiments.
+本仓库包含异构 UAV-USV 海上搜救协同实验的可运行代码。
 
-## Contents
+## 目录说明
 
-- `local_mission_sim/`: task-level UAV-USV mission simulator, baselines, Neural-Q training script, and tests.
-- `remote_auv6dof_marl/`: AUV-6DOF MARL entry file for a compatible high-fidelity underwater tracking environment.
+- `local_mission_sim/`：任务级 UAV-USV 搜救协同仿真器，包含对比方法、Neural-Q 训练脚本和测试代码。
+- `remote_auv6dof_marl/`：用于兼容高保真水下跟踪环境的 AUV-6DOF MARL 运行入口。
 
-## Local Mission Simulator
+## 本地任务级仿真
 
 ```bash
 cd local_mission_sim
@@ -16,28 +16,28 @@ python3 run_demo.py
 python3 run_experiments.py
 ```
 
-Neural-Q training:
+Neural-Q 训练：
 
 ```bash
 cd local_mission_sim
 PYTHONPATH=. python3 train_neural_q.py
 ```
 
-Unit test:
+单元测试：
 
 ```bash
 cd local_mission_sim
 PYTHONPATH=. python3 -m unittest tests/test_demo.py
 ```
 
-Generated outputs are written to `local_mission_sim/outputs/`. This directory is ignored by Git so that regenerated experiment artifacts do not clutter the repository.
+运行结果会写入 `local_mission_sim/outputs/`。该目录已被 Git 忽略，用于避免重复生成的实验结果影响代码仓库。
 
-## Remote AUV-6DOF MARL Entry
+## 远程 AUV-6DOF MARL 入口
 
-The file `remote_auv6dof_marl/auv6dof_marl_entry.py` is intended to be placed inside a compatible AUV-6DOF/DI-engine tracking codebase where `auv6dof.gym_env.AUV6DOFGymEnv` or `Tracking.auv6dof.gym_env.AUV6DOFGymEnv` is available.
+`remote_auv6dof_marl/auv6dof_marl_entry.py` 用于放置在兼容的 AUV-6DOF/DI-engine 跟踪代码环境中。目标环境需要能够导入 `auv6dof.gym_env.AUV6DOFGymEnv` 或 `Tracking.auv6dof.gym_env.AUV6DOFGymEnv`。
 
-It provides a callable `run_experiment(...)` entry that writes checkpoints, learning curves, evaluation curves, evaluation-detail tables, and configuration files.
+该文件提供可调用的 `run_experiment(...)` 入口，用于生成 checkpoint、训练曲线、评估曲线、评估明细表和配置文件。
 
-## Notes
+## 说明
 
-The local simulator is a task-level comparative simulator. It is designed for controlled coordination-policy evaluation, ablation, sensitivity, and scalability checks. It is not a hydrodynamic simulator, sensor stack, communication stack, or hardware-in-the-loop implementation.
+本地仿真器是任务级对比仿真器，适用于协同策略评估、消融实验、敏感性分析和规模化测试。它不是水动力学仿真器、传感器系统、通信协议栈或硬件在环实现。
