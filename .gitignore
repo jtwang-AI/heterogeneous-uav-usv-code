@@ -9,6 +9,7 @@ env/
 local_mission_sim/outputs/
 local_mission_sim/tests/tmp_outputs/
 local_mission_sim/tests/tmp_scalability/
+local_mission_sim/tests/tmp_vision/
 remote_auv6dof_marl/artifacts/
 artifacts/
 

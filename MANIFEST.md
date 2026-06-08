@@ -3,7 +3,7 @@
 ## 已包含
 
 - 本地仿真器源码：`local_mission_sim/src/msar_sim/`
-- 本地运行脚本：`local_mission_sim/run_demo.py`、`local_mission_sim/run_experiments.py`
+- 本地运行脚本：`local_mission_sim/run_demo.py`、`local_mission_sim/run_experiments.py`、`local_mission_sim/run_vision_experiments.py`
 - Neural-Q 训练脚本：`local_mission_sim/train_neural_q.py`
 - 本地依赖文件：`local_mission_sim/requirements.txt`
 - 单元测试：`local_mission_sim/tests/test_demo.py`

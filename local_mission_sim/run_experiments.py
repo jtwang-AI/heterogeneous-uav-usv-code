@@ -1,6 +1,7 @@
 from pathlib import Path
 
 from src.msar_sim.experiments import run_batch, run_heterogeneity_sweep, run_scalability_sweep
+from src.msar_sim.vision import run_vision_explainability
 
 
 def main() -> None:
@@ -42,6 +43,12 @@ def main() -> None:
                 f"  {method}: mission_time={metrics['mission_time']:.4f}, "
                 f"communication_load={metrics['communication_load']:.4f}"
             )
+
+    vision_dir = root / "vision"
+    vision_summary = run_vision_explainability(output_dir=vision_dir)
+    print("=== VISION Explainability Summary ===")
+    for key, value in vision_summary.items():
+        print(f"  {key}: {value}")
 
 
 if __name__ == "__main__":

@@ -14,7 +14,14 @@ cd local_mission_sim
 python3 -m pip install -r requirements.txt
 python3 run_demo.py
 python3 run_experiments.py
+python3 run_vision_experiments.py
 ```
+
+视觉解释性实验：
+
+- `run_vision_experiments.py` 生成视觉目标置信度热力图、搜索区域分配、多视角视觉跟踪、自适应环绕半径和视觉注意力-任务竞价诊断结果。
+- 输出位于 `local_mission_sim/outputs/vision/`，包括 `vision_summary.json`、`vision_region_table.csv` 以及对应的 PNG/PDF 图。
+- `outputs/` 是可重复生成的过程目录，不纳入 Git 提交。
 
 Neural-Q 训练：
 
@@ -40,4 +47,4 @@ PYTHONPATH=. python3 -m unittest tests/test_demo.py
 
 ## 说明
 
-本地仿真器是任务级对比仿真器，适用于协同策略评估、消融实验、敏感性分析和规模化测试。
+本地仿真器是任务级对比仿真器，适用于协同策略评估、消融实验、敏感性分析、规模化测试和视觉感知到任务决策链路的解释性诊断。
