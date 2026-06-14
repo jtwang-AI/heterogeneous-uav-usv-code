@@ -371,7 +371,7 @@ def _plot_attention_bidding(scenario: Scenario, output_dir: Path, seed: int) -> 
     im_bid = axes[1].imshow(bid_matrix, cmap="YlGnBu", aspect="auto")
     axes[1].set_xticks(range(len(scenario.search_tasks)), [task.task_id.replace("SEARCH_", "S") for task in scenario.search_tasks])
     axes[1].set_yticks(range(len(scenario.agents)), [agent.agent_id.replace("_", "") for agent in scenario.agents])
-    axes[1].set_title("RL-guided task-bid matrix")
+    axes[1].set_title("Learning-augmented task-bid matrix")
     for row_idx in range(bid_matrix.shape[0]):
         for col_idx in range(bid_matrix.shape[1]):
             text_color = "#ffffff" if bid_matrix[row_idx, col_idx] > np.median(bid_matrix) else "#202020"

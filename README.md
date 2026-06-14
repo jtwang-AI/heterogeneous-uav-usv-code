@@ -17,6 +17,15 @@ python3 run_experiments.py
 python3 run_vision_experiments.py
 ```
 
+完整复现：
+
+```bash
+cd local_mission_sim
+./REPRODUCE_ALL.sh
+```
+
+`local_mission_sim/REPRODUCIBILITY.md` 记录固定随机种子、关键期望数值，以及生成输出到论文图表的对应关系。
+
 视觉解释性实验：
 
 - `run_vision_experiments.py` 生成视觉目标置信度热力图、搜索区域分配、多视角视觉跟踪、自适应环绕半径和视觉注意力-任务竞价诊断结果。
